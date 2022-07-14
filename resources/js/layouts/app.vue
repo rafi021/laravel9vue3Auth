@@ -1,11 +1,10 @@
 <template>
     <div>
-        <router-link :to="{name: 'Home'}">Home</router-link> |
-        <router-link :to="{name: 'Login'}">Login</router-link> |
-        <router-link :to="{name: 'Register'}">Register</router-link>
+        <Nav />
+        <router-view></router-view>
     </div>
 
-    <router-view></router-view>
 </template>
-<script>
+<script setup>
+import Nav from "../components/Nav.vue";
 </script>

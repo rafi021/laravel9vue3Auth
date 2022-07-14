@@ -4,7 +4,7 @@ const store = createStore({
     state() {
         return{
             token: localStorage.getItem('token') || 0,
-            user: null
+            user: localStorage.getItem('user') || 0
         }
     },
 
@@ -23,6 +23,9 @@ const store = createStore({
     mutations: {
         UPDATE_TOKEN(state, new_token){
             state.token = new_token
+        },
+        UPDATE_USER(state, new_user){
+            state.user = new_user
         }
     },
 
@@ -35,6 +38,14 @@ const store = createStore({
         removeToken({commit}){
             localStorage.removeItem('token');
             commit('UPDATE_TOKEN', 0);
+        },
+        setUser({commit}, user){
+            localStorage.setItem('user', user)
+            commit('UPDATE_USER', user);
+        },
+        removeUser({commit}, user){
+            localStorage.removeItem('user');
+            commit('UPDATE_USER', 0);
         }
     }
 });

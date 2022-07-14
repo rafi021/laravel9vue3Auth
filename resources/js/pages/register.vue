@@ -63,6 +63,7 @@ const register = async() => {
    const response =  await axios.post('/api/auth/register', form)
    .then((response) => {
         store.dispatch('setToken', response.data.data.token);
+        store.dispatch('setUser', response.data.data.name);
         router.push({ name: 'Dashboard' })
    }).catch((e) => {
         errors.value = e.response.data.message;

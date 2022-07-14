@@ -46,6 +46,7 @@ const login = async() => {
 
    if(response.data.success){
         store.dispatch('setToken', response.data.data.token);
+        store.dispatch('setUser', response.data.data.name);
         router.push({ name: 'Dashboard' })
    }else{
     error.value = response.data.message;
